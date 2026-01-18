@@ -2,6 +2,44 @@
 
 A production-grade authentication and authorization service designed for web and mobile applications. AuthX provides secure user onboarding, login, role-based access control (RBAC), and complete token lifecycle management.
 
+---
+
+## 🚀 Quick Start (Clone & Run)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/authx.git
+cd authx
+
+# 2. Run setup script (installs everything!)
+chmod +x setup.sh
+./setup.sh
+
+# 3. Start the server
+npm run dev
+```
+
+**That's it!** Server runs at `http://localhost:3001`
+
+### Default Login
+```
+Email:    admin@authx.local
+Password: Admin@123!
+```
+
+### Test the API
+```bash
+# Health check
+curl http://localhost:3001/api/v1/health
+
+# Login
+curl -X POST http://localhost:3001/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@authx.local","password":"Admin@123!"}'
+```
+
+---
+
 ## ✨ Features
 
 - **User Authentication**

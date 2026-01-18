@@ -15,25 +15,15 @@ npm-debug.log*
 pids/
 *.pid
 *.seed
-*.pid.lock
 
 # Coverage
 coverage/
-.nyc_output/
 
 # IDE
 .idea/
 .vscode/
-*.swp
-*.swo
 .DS_Store
 
 # Build
 dist/
 build/
-
-# Prisma
-prisma/migrations/
-
-# Test
-*.test.js.snap
