@@ -6,9 +6,10 @@ A production-grade authentication and authorization service designed for web and
 
 ## 🚀 Quick Start (Clone & Run)
 
+### 🍎 macOS / Linux
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/authx.git
+git clone https://github.com/q225/authx.git
 cd authx
 
 # 2. Run setup script (installs everything!)
@@ -18,6 +19,54 @@ chmod +x setup.sh
 # 3. Start the server
 npm run dev
 ```
+
+### 🪟 Windows
+
+**Option 1: PowerShell (Recommended)**
+```powershell
+# 1. Clone the repository
+git clone https://github.com/q225/authx.git
+cd authx
+
+# 2. Run setup script
+.\setup.ps1
+
+# 3. Follow the instructions to set up PostgreSQL, then:
+npm run db:push
+npm run db:seed
+npm run dev
+```
+
+**Option 2: Command Prompt**
+```cmd
+# 1. Clone the repository
+git clone https://github.com/q225/authx.git
+cd authx
+
+# 2. Run setup script
+setup.bat
+
+# 3. Follow the instructions to set up PostgreSQL, then:
+npm run db:push
+npm run db:seed
+npm run dev
+```
+
+### 📋 Windows Prerequisites
+
+1. **Node.js 18+**: Download from [nodejs.org](https://nodejs.org/)
+2. **PostgreSQL**: Download from [postgresql.org](https://www.postgresql.org/download/windows/)
+3. **Git**: Download from [git-scm.com](https://git-scm.com/download/win)
+
+After installing PostgreSQL on Windows:
+1. Open **pgAdmin** or **SQL Shell (psql)**
+2. Create database: `CREATE DATABASE authx_db;`
+3. Update `.env` file with your credentials:
+   ```
+   DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/authx_db"
+   ```
+
+---
 
 **That's it!** Server runs at `http://localhost:3001`
 
