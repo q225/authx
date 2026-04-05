@@ -1,6 +1,7 @@
 /**
  * AuthX Configuration
  * Centralized configuration management with environment variables
+ * ragav
  */
 
 require('dotenv').config();
