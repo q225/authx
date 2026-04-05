@@ -1,5 +1,6 @@
 # 🔐 AuthX - User Authentication & Authorization System
 
+#this is koushik
 A production-grade authentication and authorization service designed for web and mobile applications. AuthX provides secure user onboarding, login, role-based access control (RBAC), and complete token lifecycle management.
 
 ---
@@ -7,6 +8,7 @@ A production-grade authentication and authorization service designed for web and
 ## 🚀 Quick Start (Clone & Run)
 
 ### 🍎 macOS / Linux
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/q225/authx.git
@@ -23,6 +25,7 @@ npm run dev
 ### 🪟 Windows
 
 **Option 1: PowerShell (Recommended)**
+
 ```powershell
 # 1. Clone the repository
 git clone https://github.com/q225/authx.git
@@ -38,6 +41,7 @@ npm run dev
 ```
 
 **Option 2: Command Prompt**
+
 ```cmd
 # 1. Clone the repository
 git clone https://github.com/q225/authx.git
@@ -59,6 +63,7 @@ npm run dev
 3. **Git**: Download from [git-scm.com](https://git-scm.com/download/win)
 
 After installing PostgreSQL on Windows:
+
 1. Open **pgAdmin** or **SQL Shell (psql)**
 2. Create database: `CREATE DATABASE authx_db;`
 3. Update `.env` file with your credentials:
@@ -71,12 +76,14 @@ After installing PostgreSQL on Windows:
 **That's it!** Server runs at `http://localhost:3001`
 
 ### Default Login
+
 ```
 Email:    admin@authx.local
 Password: Admin@123!
 ```
 
 ### Test the API
+
 ```bash
 # Health check
 curl http://localhost:3001/api/v1/health
@@ -95,7 +102,6 @@ curl -X POST http://localhost:3001/api/v1/auth/login \
   - Secure user registration and login
   - Email/username authentication
   - Password hashing with bcrypt (configurable salt rounds)
-  
 - **JWT Token Management**
   - Access tokens for API authentication
   - Refresh tokens with rotation
@@ -161,21 +167,25 @@ authx/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    cd authx
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment variables**
+
    ```bash
    cp env.example .env
    ```
-   
+
    Edit `.env` with your configuration:
+
    ```env
    DATABASE_URL="postgresql://user:password@localhost:5432/authx_db"
    JWT_ACCESS_SECRET="your-secure-access-secret-min-32-chars"
@@ -183,6 +193,7 @@ authx/
    ```
 
 4. **Set up the database**
+
    ```bash
    # Generate Prisma client
    npm run db:generate
@@ -195,6 +206,7 @@ authx/
    ```
 
 5. **Start the server**
+
    ```bash
    # Development mode
    npm run dev
@@ -206,58 +218,60 @@ authx/
 ## 📖 API Documentation
 
 ### Base URL
+
 ```
 http://localhost:3000/api/v1
 ```
 
 ### Authentication Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| POST | `/auth/register` | Register new user | No |
-| POST | `/auth/login` | Login user | No |
-| POST | `/auth/logout` | Logout user | Yes |
-| POST | `/auth/logout-all` | Logout from all devices | Yes |
-| POST | `/auth/refresh` | Refresh access token | No (refresh token) |
-| POST | `/auth/change-password` | Change password | Yes |
-| GET | `/auth/me` | Get current user | Yes |
-| GET | `/auth/sessions` | Get active sessions | Yes |
+| Method | Endpoint                | Description             | Auth Required      |
+| ------ | ----------------------- | ----------------------- | ------------------ |
+| POST   | `/auth/register`        | Register new user       | No                 |
+| POST   | `/auth/login`           | Login user              | No                 |
+| POST   | `/auth/logout`          | Logout user             | Yes                |
+| POST   | `/auth/logout-all`      | Logout from all devices | Yes                |
+| POST   | `/auth/refresh`         | Refresh access token    | No (refresh token) |
+| POST   | `/auth/change-password` | Change password         | Yes                |
+| GET    | `/auth/me`              | Get current user        | Yes                |
+| GET    | `/auth/sessions`        | Get active sessions     | Yes                |
 
 ### User Endpoints
 
-| Method | Endpoint | Description | Permission |
-|--------|----------|-------------|------------|
-| GET | `/users` | List all users | `users:read` |
-| GET | `/users/:id` | Get user by ID | Owner or `users:read` |
-| PUT | `/users/:id` | Update user | Owner or `users:update` |
-| PATCH | `/users/:id/status` | Update user status | `users:manage` |
-| DELETE | `/users/:id` | Delete user | `users:delete` |
-| POST | `/users/:id/roles` | Assign role | `users:manage` |
-| DELETE | `/users/:id/roles/:roleId` | Remove role | `users:manage` |
+| Method | Endpoint                   | Description        | Permission              |
+| ------ | -------------------------- | ------------------ | ----------------------- |
+| GET    | `/users`                   | List all users     | `users:read`            |
+| GET    | `/users/:id`               | Get user by ID     | Owner or `users:read`   |
+| PUT    | `/users/:id`               | Update user        | Owner or `users:update` |
+| PATCH  | `/users/:id/status`        | Update user status | `users:manage`          |
+| DELETE | `/users/:id`               | Delete user        | `users:delete`          |
+| POST   | `/users/:id/roles`         | Assign role        | `users:manage`          |
+| DELETE | `/users/:id/roles/:roleId` | Remove role        | `users:manage`          |
 
 ### Role Endpoints
 
-| Method | Endpoint | Description | Permission |
-|--------|----------|-------------|------------|
-| GET | `/roles` | List all roles | `roles:read` |
-| GET | `/roles/:id` | Get role by ID | `roles:read` |
-| POST | `/roles` | Create role | `roles:create` |
-| PUT | `/roles/:id` | Update role | `roles:update` |
-| DELETE | `/roles/:id` | Delete role | `roles:delete` |
-| PUT | `/roles/:id/permissions` | Set role permissions | `roles:manage` |
+| Method | Endpoint                 | Description          | Permission     |
+| ------ | ------------------------ | -------------------- | -------------- |
+| GET    | `/roles`                 | List all roles       | `roles:read`   |
+| GET    | `/roles/:id`             | Get role by ID       | `roles:read`   |
+| POST   | `/roles`                 | Create role          | `roles:create` |
+| PUT    | `/roles/:id`             | Update role          | `roles:update` |
+| DELETE | `/roles/:id`             | Delete role          | `roles:delete` |
+| PUT    | `/roles/:id/permissions` | Set role permissions | `roles:manage` |
 
 ### Permission Endpoints
 
-| Method | Endpoint | Description | Permission |
-|--------|----------|-------------|------------|
-| GET | `/permissions` | List all permissions | `roles:read` |
-| GET | `/permissions/grouped` | Get permissions by resource | `roles:read` |
-| POST | `/permissions` | Create permission | `roles:manage` |
-| DELETE | `/permissions/:id` | Delete permission | `roles:manage` |
+| Method | Endpoint               | Description                 | Permission     |
+| ------ | ---------------------- | --------------------------- | -------------- |
+| GET    | `/permissions`         | List all permissions        | `roles:read`   |
+| GET    | `/permissions/grouped` | Get permissions by resource | `roles:read`   |
+| POST   | `/permissions`         | Create permission           | `roles:manage` |
+| DELETE | `/permissions/:id`     | Delete permission           | `roles:manage` |
 
 ## 🔑 Authentication Flow
 
 ### Register
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/auth/register \
   -H "Content-Type: application/json" \
@@ -271,6 +285,7 @@ curl -X POST http://localhost:3000/api/v1/auth/register \
 ```
 
 ### Login
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/auth/login \
   -H "Content-Type: application/json" \
@@ -281,12 +296,14 @@ curl -X POST http://localhost:3000/api/v1/auth/login \
 ```
 
 ### Using Access Token
+
 ```bash
 curl -X GET http://localhost:3000/api/v1/auth/me \
   -H "Authorization: Bearer <access_token>"
 ```
 
 ### Refresh Token
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/auth/refresh \
   -H "Content-Type: application/json" \
@@ -299,13 +316,13 @@ curl -X POST http://localhost:3000/api/v1/auth/refresh \
 
 1. **Environment Variables**: Never commit sensitive data. Use environment variables.
 2. **HTTPS**: Always use HTTPS in production.
-3. **Password Requirements**: 
+3. **Password Requirements**:
    - Minimum 8 characters
    - At least one uppercase letter
    - At least one lowercase letter
    - At least one number
    - At least one special character
-4. **Rate Limiting**: 
+4. **Rate Limiting**:
    - General API: 100 requests per 15 minutes
    - Auth endpoints: 10 requests per 15 minutes
 5. **Token Security**:
@@ -316,6 +333,7 @@ curl -X POST http://localhost:3000/api/v1/auth/refresh \
 ## 🗃 Database Schema
 
 ### Users
+
 - `id` - UUID primary key
 - `email` - Unique email address
 - `username` - Unique username
@@ -326,12 +344,14 @@ curl -X POST http://localhost:3000/api/v1/auth/refresh \
 - `lastLoginAt` - Last login timestamp
 
 ### Roles
+
 - `id` - UUID primary key
 - `name` - Unique role name
 - `description` - Role description
 - `isDefault` - Default role for new users
 
 ### Permissions
+
 - `id` - UUID primary key
 - `name` - Permission display name
 - `resource` - Resource identifier (e.g., "users")
@@ -340,6 +360,7 @@ curl -X POST http://localhost:3000/api/v1/auth/refresh \
 ## 📝 Default Admin Credentials
 
 After seeding the database:
+
 ```
 Email:    admin@authx.local
 Password: Admin@123!
