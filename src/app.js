@@ -16,6 +16,8 @@ const { notFound, errorHandler } = require('./middleware/error.middleware');
 
 const app = express();
 
+// something randon
+
 // Trust proxy (for rate limiting behind reverse proxy)
 app.set('trust proxy', 1);
 
@@ -80,10 +82,12 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Request logging
-if (config.env === 'development') {
+if (config.env === 'development' || config.env === 'test' || config.env === 'staging' || config.env === 'local' || config.env === 'development') {
   app.use(morgan('dev'));
-} else {
+} else if (config.env === 'production') {
   app.use(morgan('combined'));
+} else {
+  app.use(morgan('dev'));
 }
 
 // API routes

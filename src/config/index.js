@@ -2,6 +2,7 @@
  * AuthX Configuration
  * Centralized configuration management with environment variables
  * ragav
+ * abhay
  */
 
 require('dotenv').config();
