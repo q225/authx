@@ -1,6 +1,6 @@
 # 🔐 AuthX - User Authentication & Authorization System
 
-#this is koushik
+#This is koushik
 A production-grade authentication and authorization service designed for web and mobile applications. AuthX provides secure user onboarding, login, role-based access control (RBAC), and complete token lifecycle management.
 
 ---
