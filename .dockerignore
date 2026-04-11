@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.env
+.env.*
+!env.example
+dist
+coverage
+.git
+.gitignore
+*.md
+postman
+setup.sh
+setup.ps1
+setup.bat
+test-api.sh
