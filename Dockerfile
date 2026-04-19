@@ -1,5 +1,6 @@
 # ---- Base Stage ----
 FROM node:18-alpine AS base
+RUN apk add --no-cache openssl
 WORKDIR /app
 
 # Install dependencies only when needed
@@ -12,6 +13,7 @@ RUN npx prisma generate
 
 # ---- Final Stage ----
 FROM node:18-alpine
+RUN apk add --no-cache openssl
 WORKDIR /app
 
 # Copy from base
