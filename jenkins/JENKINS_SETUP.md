@@ -57,33 +57,3 @@ Add these as `Secret text`:
 | Security Scan      | `npm audit` for vulnerabilities   |
 | Deploy             | Runs container (main branch only) |
 | Health Check       | Hits `/api/v1/health` to verify   |
-
-PR Description Template
-When you raise the PR, use this:
-
-## Adds Jenkins CI/CD Pipeline
-
-This PR introduces a production-grade Jenkins pipeline for AuthX.
-
-### Files Added
-
-- `Jenkinsfile` — Declarative pipeline with 8 stages
-- `jenkins/docker-compose.jenkins.yml` — Run Jenkins locally
-- `jenkins/JENKINS_SETUP.md` — Step-by-step setup guide
-
-### Pipeline Stages
-
-1. Checkout
-2. Install Dependencies (in Node Docker container)
-3. Lint (ESLint)
-4. Test (Jest)
-5. Build Docker Image (tagged with build number)
-6. Security Scan (npm audit)
-7. Deploy (main branch only, uses Jenkins credentials)
-8. Health Check (hits /api/v1/health)
-
-### Notes
-
-- Secrets are stored in Jenkins Credentials, never hardcoded
-- Deploy stage is gated to `main` branch only
-- Old containers are replaced cleanly on each deploy
